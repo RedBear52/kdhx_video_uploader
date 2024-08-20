@@ -9,22 +9,6 @@ body {
   font-family: "Helvetica Neue", sans-serif;
 }
 
-/* .content {
-  flex: 1;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-/* .dashboard-container {
-  flex: 1;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
 .form-container {
   display: flex;
   flex-direction: column; /* Arrange children in a column */
@@ -41,7 +25,7 @@ body {
 
 .form-field {
   width: 100%;
-  padding: 10px; /* Adjust padding as needed */
+  padding: 10px;
   margin-bottom: 10px; /* Adjust margin as needed */
   box-sizing: border-box; /* Ensure padding and border are included in the width */
   font-size: 16px; /* Adjust font size as needed */
@@ -56,7 +40,7 @@ button {
   background-color: red;
   color: white;
   cursor: pointer;
-  align-self: center; /* Center the button horizontally */
+  align-self: center;
   min-width: 100%;
   height: 3rem;
   font-size: 1.25rem;
@@ -73,45 +57,4 @@ button {
   padding: 4rem;
   padding-top: 0;
   margin-top: 0;
-}
-
-/* video preview styles */
-/* .video-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.8
-  ); /* Optional: Add a semi-transparent background */
-  z-index: 1000; /* Ensure the video container is above other content */
-} */
-
-/* Constrain the video dimensions */
-.modal-content video {
-  max-width: 90vw; /* Ensure the video does not exceed 90% of the viewport width */
-  max-height: 90vh; /* Ensure the video does not exceed 90% of the viewport height */
-  width: auto;
-  height: 60vh;
-}
-
-/* Optional: Add a close button */
-.close-button {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background-color: red;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  font-size: 1rem;
-  z-index: 100001; /* Ensure the close button is above the video */
 }
