@@ -1,0 +1,35 @@
+<div class="dashboard-container">
+  <div class="dashboard">
+    <h1>Dashboard</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let video of videos">
+          <td>{{ video.name }}</td>
+          <td>{{ video.email }}</td>
+          <td>
+            <div class="button-container">
+              <button (click)="previewVideo(video.vid_url)">Preview</button>
+              <button><a [href]="video.vid_url" download>Download</a></button>
+              <button (click)="deleteVideo(video.vid_url)">Delete</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="videoModal" class="modal" [ngClass]="{ show: previewUrl !== null }">
+  <div class="modal-content">
+    <span class="close" (click)="closePreview()">&times;</span>
+    <video controls [src]="previewUrl" width="100%"></video>
+  </div>
+</div>

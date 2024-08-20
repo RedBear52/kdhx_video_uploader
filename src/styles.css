@@ -1,0 +1,117 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+/* .content {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* .dashboard-container {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.form-container {
+  display: flex;
+  flex-direction: column; /* Arrange children in a column */
+  justify-content: space-between; /* Distribute space between children */
+
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 20px; /* Adjust padding as needed */
+  box-sizing: border-box; /* Ensure padding doesn't affect the width/height */
+  width: 60vw; /* Fixed width */
+  height: 60vh; /* Fixed height */
+  background-color: white; /* Optional: Set a background color */
+}
+
+.form-field {
+  width: 100%;
+  padding: 10px; /* Adjust padding as needed */
+  margin-bottom: 10px; /* Adjust margin as needed */
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+  font-size: 16px; /* Adjust font size as needed */
+  flex-grow: 1; /* Allow fields to grow and fill available space */
+}
+
+button {
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  align-self: center; /* Center the button horizontally */
+  min-width: 100%;
+  height: 3rem;
+  font-size: 1.25rem;
+}
+
+.vid-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  flex-direction: column;
+  text-align: center;
+  height: 25%;
+  padding: 4rem;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* video preview styles */
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* Optional: Add a semi-transparent background */
+  z-index: 1000; /* Ensure the video container is above other content */
+}
+
+/* Constrain the video dimensions */
+.modal-content video {
+  max-width: 90vw; /* Ensure the video does not exceed 90% of the viewport width */
+  max-height: 90vh; /* Ensure the video does not exceed 90% of the viewport height */
+  width: auto;
+  height: 60vh;
+}
+
+/* Optional: Add a close button */
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  z-index: 1001; /* Ensure the close button is above the video */
+}

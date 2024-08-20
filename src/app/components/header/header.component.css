@@ -1,0 +1,33 @@
+:host {
+  display: flex; /* Change from block to flex */
+  width: 100%;
+  min-height: 6rem;
+  background-color: black;
+  border-bottom: 8px solid red;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+  padding: 10px 0;
+  box-sizing: border-box; /* Uncomment this line */
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+img {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 0.5rem;
+}
+
+h1 {
+  transform: translate(0, 5px);
+  margin-left: 10px;
+}

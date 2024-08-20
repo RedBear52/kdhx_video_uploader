@@ -1,0 +1,59 @@
+<main class="main">
+  <div class="content">
+    <form
+      #selfieForm="ngForm"
+      class="form-container"
+      (ngSubmit)="onSubmit(selfieForm)"
+    >
+      <div>
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="form-field"
+          ngModel
+          required
+        />
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="form-field"
+          ngModel
+          required
+        />
+      </div>
+      <!-- <div class="vid-btn-container"> -->
+      <div class="top-div">
+        <label for="selfie">Upload Video:</label>
+        <input
+          type="file"
+          id="selfie"
+          name="selfie"
+          (change)="onFileChange($event)"
+          accept="video/*"
+          required
+        />
+      </div>
+      <div class="btm-div">
+        <button type="submit">Submit</button>
+      </div>
+      <!-- </div> -->
+
+      <!-- Loading spinner -->
+      <div *ngIf="isLoading" class="spinner"></div>
+
+      <!-- Success message -->
+      <div *ngIf="successMessage" class="success-message">
+        {{ successMessage }}
+      </div>
+
+      <!-- Error message -->
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    </form>
+  </div>
+</main>
