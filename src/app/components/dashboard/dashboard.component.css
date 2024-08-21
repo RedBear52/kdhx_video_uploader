@@ -66,6 +66,20 @@ tr {
   white-space: nowrap;
 }
 
+#preview-btn {
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#download-btn {
+  background-color: white;
+  color: red;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
 @media (max-width: 600px) {
   .button-container {
     flex-direction: column; /* Stack buttons vertically on small screens */
@@ -120,4 +134,10 @@ tr {
 a {
   color: white;
   text-decoration: none;
+}
+
+#preview-btn,
+#download-btn,
+#delete-btn {
+  font-size: 16px;
 }

@@ -48,3 +48,12 @@ button {
   right: 0;
   margin-right: 20px;
 }
+
+/* media query that moves log out button underneath the h1 element when screen width is 568 or less */
+@media (max-width: 572px) {
+  header {
+    flex-direction: column;
+    /* align-items: center; */
+    flex-wrap: wrap;
+  }
+}

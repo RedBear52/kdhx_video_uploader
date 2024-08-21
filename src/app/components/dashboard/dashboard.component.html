@@ -15,9 +15,20 @@
           <td>{{ video.email }}</td>
           <td>
             <div class="button-container">
-              <button (click)="previewVideo(video.vid_url)">Preview</button>
-              <button><a [href]="video.vid_url" download>Download</a></button>
-              <button (click)="deleteVideo(video.vid_url)">Delete</button>
+              <button (click)="previewVideo(video.vid_url)" id="preview-btn">
+                Preview
+              </button>
+              <button id="download-btn">
+                <a
+                  [href]="video.vid_url"
+                  style="color: red; font-size: 16px"
+                  download
+                  >Download</a
+                >
+              </button>
+              <button (click)="deleteVideo(video.vid_url)" id="delete-btn">
+                Delete
+              </button>
             </div>
           </td>
         </tr>
