@@ -31,3 +31,20 @@ h1 {
   transform: translate(0, 5px);
   margin-left: 10px;
 }
+
+button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  /* margin-left: 80vw; */
+  margin-right: 10px;
+  max-width: 100px;
+}
+
+.log-out-btn-container {
+  position: fixed;
+  right: 0;
+  margin-right: 20px;
+}

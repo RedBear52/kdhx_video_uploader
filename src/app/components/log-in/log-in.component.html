@@ -1,0 +1,39 @@
+<div class="main-container">
+  <div class="card-container">
+    <div class="title"><h2>Log In</h2></div>
+
+    <div class="form-container">
+      <form [formGroup]="loginForm" (ngSubmit)="onLogIn()" class="login-form">
+        <input
+          class="login-input"
+          type="text"
+          formControlName="email"
+          placeholder="email"
+        />
+        <p
+          *ngIf="
+            loginForm.get('email')?.hasError('required') &&
+            loginForm.get('email')?.dirty
+          "
+        >
+          Email is required
+        </p>
+        <p
+          *ngIf="
+            loginForm.get('email')?.hasError('email') &&
+            loginForm.get('email')?.dirty
+          "
+        >
+          Email is invalid
+        </p>
+        <input
+          class="login-input"
+          type="password"
+          formControlName="password"
+          placeholder="password"
+        />
+        <button class="login-button" type="submit">Sign In</button>
+      </form>
+    </div>
+  </div>
+</div>
