@@ -68,14 +68,23 @@ export class DashboardComponent implements OnInit {
   }
 
   async deleteVideo(url: string): Promise<void> {
-    console.log('Delete video:', url);
+    // Show a confirmation dialog
+    const confirmed = window.confirm(
+      'Are you sure you want to delete this video?'
+    );
 
-    const id = await this.getVideoId(url);
-    console.log('id:', id);
+    if (confirmed) {
+      console.log('Delete video:', url);
 
-    this.videoService.deleteVideoFromFirestore(id);
-    this.videos = this.videos.filter((video) => video.vid_url !== url);
+      const id = await this.getVideoId(url);
+      console.log('id:', id);
 
-    console.log('Video deleted:', id);
+      this.videoService.deleteVideoFromFirestore(id);
+      this.videos = this.videos.filter((video) => video.vid_url !== url);
+
+      console.log('Video deleted:', id);
+    } else {
+      console.log('Video deletion canceled');
+    }
   }
 }
