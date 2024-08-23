@@ -45,9 +45,14 @@ Your file size: (${(file.size / (1024 * 1024 * 1024)).toFixed(2)} GB)`;
     }
   }
 
-  async onSubmit(form: any): Promise<void> {
-    const name = form.value.name;
-    const email = form.value.email;
+  async onSubmit(uploadForm: any): Promise<void> {
+    if (!uploadForm.valid) {
+      this.errorMessage = 'Please fill out the form correctly.';
+      return;
+    }
+
+    const name = uploadForm.value.name;
+    const email = uploadForm.value.email;
     const file = this.selectedFile;
     console.log('file submitted');
 
@@ -84,7 +89,7 @@ Your file size: (${(file.size / (1024 * 1024 * 1024)).toFixed(2)} GB)`;
       console.error('No file selected');
     }
 
-    form.reset();
+    uploadForm.reset();
   }
 
   tellMe(): void {
