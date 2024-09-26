@@ -6,13 +6,23 @@ import { db } from '../../../../firebase.config';
 import { VideoService } from '../../services/video.service';
 import { Video } from '../../models/video';
 import { HeaderComponent } from '../header/header.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
   standalone: true,
-  imports: [CommonModule, RouterModule, HeaderComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    HeaderComponent,
+    MatIconModule,
+    MatTooltipModule,
+    MatButtonModule,
+  ],
 })
 export class DashboardComponent implements OnInit {
   videos: Video[] = [];
