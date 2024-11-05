@@ -56,42 +56,30 @@ tr {
 
 .button-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
 }
 
 .button-container button,
 .button-container a {
-  padding: 5px 10px;
-  font-size: 12px;
-  flex: 1 1 auto;
-  white-space: nowrap;
+  flex-wrap: nowrap;
+  width: 100%;
+  justify-content: space-between;
 }
 
-#preview-btn {
-  background-color: black;
-  color: white;
-  border: none;
+mat-icon {
   cursor: pointer;
 }
 
-#download-btn {
-  background-color: white;
-  color: red;
-  border: 1px solid black;
-  cursor: pointer;
-}
-
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .button-container {
     flex-direction: column; /* Stack buttons vertically on small screens */
-  }
+/* } */
 
-  .button-container button,
-  .button-container a {
-    width: 100%; /* Make buttons full width on small screens */
-    margin-bottom: 5px; /* Space between stacked buttons */
-  }
+.button-container button,
+.button-container a {
+  width: 100%; /* Make buttons full width on small screens */
+  margin-bottom: 5px; /* Space between stacked buttons */
 }
 
 /* Modal CSS */

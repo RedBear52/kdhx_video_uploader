@@ -15,20 +15,28 @@
           <td>{{ video.email }}</td>
           <td>
             <div class="button-container">
-              <button (click)="previewVideo(video.vid_url)" id="preview-btn">
-                Preview
-              </button>
-              <button id="download-btn">
-                <a
-                  [href]="video.vid_url"
-                  style="color: red; font-size: 16px"
-                  download
-                  >Download</a
-                >
-              </button>
-              <button (click)="deleteVideo(video.vid_url)" id="delete-btn">
-                Delete
-              </button>
+              <mat-icon
+                (click)="previewVideo(video.vid_url)"
+                style="color: black; font-size: 16px"
+                matTooltip="Preview"
+                matTooltipPosition="above"
+                >visibility</mat-icon
+              >
+              <a
+                [href]="video.vid_url"
+                style="color: black; font-size: 16px"
+                download
+                matTooltip="Download"
+                matTooltipPosition="above"
+                ><mat-icon>download</mat-icon></a
+              >
+              <mat-icon
+                (click)="deleteVideo(video.vid_url)"
+                style="color: red; font-size: 16px"
+                matTooltip="Delete"
+                matTooltipPosition="above"
+                >delete</mat-icon
+              >
             </div>
           </td>
         </tr>
