@@ -9,6 +9,10 @@ import { HeaderComponent } from '../header/header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
+import {
+  MatSlideToggleChange,
+  MatSlideToggleModule,
+} from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,18 +26,21 @@ import { MatButtonModule } from '@angular/material/button';
     MatIconModule,
     MatTooltipModule,
     MatButtonModule,
+    MatSlideToggleModule,
   ],
 })
 export class DashboardComponent implements OnInit {
   videos: Video[] = [];
   previewUrl: string | null = null;
   videoIds: string[] = [];
+  showArchived = false;
 
   constructor(private videoService: VideoService) {}
 
   async ngOnInit(): Promise<void> {
-    this.videos = await this.fetchVideos();
-    console.log(this.videos);
+    this.videos = (await this.fetchVideos()).filter(
+      (video) => !video.isArchived
+    );
   }
 
   async fetchVideos(): Promise<any[]> {
@@ -42,6 +49,28 @@ export class DashboardComponent implements OnInit {
       id: doc.id,
       ...doc.data(),
     }));
+  }
+
+  async archiveVideo(videoId: string): Promise<any> {
+    console.log('Archive video:', videoId);
+    await this.videoService.archiveVideo(videoId);
+    this.videos = this.videos.filter((video) => video.id !== videoId);
+  }
+
+  async toggleArchivedVideos(event: MatSlideToggleChange): Promise<void> {
+    this.showArchived = event.checked;
+    if (this.showArchived) {
+      this.videos = await this.fetchVideos();
+    } else {
+      this.videos = (await this.fetchVideos()).filter(
+        (video) => !video.isArchived
+      );
+    }
+  }
+
+  async showArchivedVideos(): Promise<Video[]> {
+    this.videos = await this.fetchVideos();
+    return this.videos;
   }
 
   previewVideo(url: string): void {

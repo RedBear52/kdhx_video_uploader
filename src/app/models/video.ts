@@ -3,4 +3,5 @@ export interface Video {
   email: string;
   name: string;
   id: string;
+  isArchived: boolean;
 }

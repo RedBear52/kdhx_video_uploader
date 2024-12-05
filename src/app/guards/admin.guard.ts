@@ -9,8 +9,7 @@ export const adminGuard = async () => {
 
   const logInState = await authManagementService
     .monitorAuthState()
-    .pipe(first())
-    .toPromise();
+    .pipe(first());
   if (logInState !== undefined) {
     if (logInState) {
       console.log('User is logged in');
