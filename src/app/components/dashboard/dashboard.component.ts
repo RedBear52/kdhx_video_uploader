@@ -38,6 +38,7 @@ export class DashboardComponent implements OnInit {
   constructor(private videoService: VideoService) {}
 
   async ngOnInit(): Promise<void> {
+    this.showArchived = false;
     this.videos = (await this.fetchVideos()).filter(
       (video) => !video.isArchived
     );
