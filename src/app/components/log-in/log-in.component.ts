@@ -52,7 +52,7 @@ export class LogInComponent {
           emailControl.value,
           passwordControl.value
         );
-        this.router.navigate(['/upload-book']);
+        this.router.navigate(['/dashboard']);
       } catch (error: any) {
         this.error = error.message.slice(10);
       } finally {
@@ -72,7 +72,7 @@ export class LogInComponent {
           emailControl.value,
           passwordControl.value
         );
-        this.router.navigate(['/upload-book']);
+        this.router.navigate(['/dashboard']);
       } catch (error: any) {
         this.error = error.message.slice(10);
       } finally {
