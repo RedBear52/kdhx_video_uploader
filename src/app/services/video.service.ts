@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { deleteObject, ref } from 'firebase/storage';
 import { storage } from '../../../firebase.config';
 import { db } from '../../../firebase.config';
-import { getDocs, collection } from 'firebase/firestore';
+import { getDocs, collection, updateDoc } from 'firebase/firestore';
 import { deleteDoc, doc } from 'firebase/firestore';
 import { query, where } from 'firebase/firestore';
 
@@ -12,22 +12,17 @@ import { query, where } from 'firebase/firestore';
 export class VideoService {
   constructor() {}
 
-  // deleteVideo(url: string): void {
-  //   // get video id from url
+  async archiveVideo(id: string): Promise<void> {
+    // Get the document reference directly using the id
+    const docRef = doc(db, 'selfie-videos', id);
 
-  //   console.log('Delete video:', url);
+    // Update the document
+    await updateDoc(docRef, {
+      isArchived: true,
+    });
 
-  //   const storageRef = ref(storage, url);
-  //   console.log('storageRef:', storageRef);
-  //   console.log('storage:', storage);
-  //   deleteObject(storageRef)
-  //     .then(() => {
-  //       console.log('File deleted successfully');
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error deleting file:', error);
-  //     });
-  // }
+    console.log('Video archived:', id);
+  }
 
   async deleteVideo(url: string): Promise<void> {
     console.log('Delete video:', url);
