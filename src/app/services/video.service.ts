@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { deleteObject, ref } from 'firebase/storage';
 import { storage } from '../../../firebase.config';
 import { db } from '../../../firebase.config';
-import { getDocs, collection, updateDoc } from 'firebase/firestore';
-import { deleteDoc, doc } from 'firebase/firestore';
+import { getDocs, collection } from 'firebase/firestore';
+import { deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { query, where } from 'firebase/firestore';
 
 @Injectable({
@@ -13,15 +13,18 @@ export class VideoService {
   constructor() {}
 
   async archiveVideo(id: string): Promise<void> {
-    // Get the document reference directly using the id
+    console.log('Archive video:', id);
     const docRef = doc(db, 'selfie-videos', id);
-
-    // Update the document
-    await updateDoc(docRef, {
-      isArchived: true,
-    });
-
+    await updateDoc(docRef, { isArchived: true });
     console.log('Video archived:', id);
+  }
+
+  async fetchVideos(): Promise<any[]> {
+    const querySnapshot = await getDocs(collection(db, 'selfie-videos'));
+    return querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
   }
 
   async deleteVideo(url: string): Promise<void> {
@@ -56,7 +59,6 @@ export class VideoService {
   async deleteVideoFromFirestore(id: string): Promise<void> {
     console.log('Delete video:', id);
 
-    // Delete the document from Firestore
     const docRef = doc(db, 'selfie-videos', id);
     await deleteDoc(docRef);
     console.log('Video deleted:', id);
